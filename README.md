@@ -142,4 +142,35 @@ All diagrams are rendered automatically by GitHub's Mermaid support for beautifu
 
 ---
 
-**📚 [Start Reading the Complete Documentation →](./CASHNET_Complete_Documentation.md)**
+## 🚀 GitHub Pages Setup
+
+This repository is configured for GitHub Pages with Mermaid diagram support:
+
+1. **Enable GitHub Pages**: Go to repository Settings → Pages → Source: Deploy from a branch → Branch: main/master
+2. **Mermaid Support**: Diagrams will render automatically with the custom Jekyll configuration
+3. **Test Page**: Visit [test-mermaid.md](./test-mermaid.md) to verify diagram rendering
+4. **Main Documentation**: Access the full documentation at your GitHub Pages URL
+
+### 🔧 Local Development
+
+To run locally with proper Mermaid rendering:
+
+```bash
+# Install dependencies
+bundle install
+
+# Serve locally
+bundle exec jekyll serve
+
+# View at http://localhost:4000
+```
+
+### 📱 Mobile Responsive
+
+All diagrams and documentation are optimized for mobile viewing with responsive design.
+
+---
+
+**📚 [Start Reading the Complete Documentation →](./index.md)**
+
+**🧪 [Test Mermaid Rendering →](./test-mermaid.md)**

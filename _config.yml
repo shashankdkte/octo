@@ -1,10 +1,20 @@
 theme: jekyll-theme-cayman
-title: Cashnet Architecture Docs
-description: High-level system design and transaction flows
+title: CASHNET Architecture Documentation
+description: Complete payment processing system documentation with interactive diagrams
 
-# Optional: add navigation links
-header_pages:
-  - index.md
-  - flow.md
-  - components.md
-  - endtoend.md
+# Enable Mermaid support
+plugins:
+  - jekyll-mermaid
+
+# Mermaid configuration
+mermaid:
+  src: 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js'
+
+# Markdown configuration
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Enable GitHub-flavored markdown
+github_flavored_markdown: true
