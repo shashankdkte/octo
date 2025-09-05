@@ -12,49 +12,41 @@
     <!-- Mermaid.js -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
     <script>
-      mermaid.initialize({
-        startOnLoad: true,
-        theme: 'default',
-        themeVariables: {
-          primaryColor: '#157878',
-          primaryTextColor: '#fff',
-          primaryBorderColor: '#0d5aa7',
-          lineColor: '#0d5aa7',
-          secondaryColor: '#f1f8ff',
-          tertiaryColor: '#fff'
-        },
-        flowchart: {
-          useMaxWidth: true,
-          htmlLabels: true,
-          curve: 'basis'
-        },
-        sequence: {
-          diagramMarginX: 50,
-          diagramMarginY: 10,
-          actorMargin: 50,
-          width: 150,
-          height: 65,
-          boxMargin: 10,
-          boxTextMargin: 5,
-          noteMargin: 10,
-          messageMargin: 35,
-          mirrorActors: true,
-          bottomMarginAdj: 1,
-          useMaxWidth: true,
-          rightAngles: false,
-          showSequenceNumbers: false
-        },
-        er: {
-          diagramPadding: 20,
-          layoutDirection: 'TB',
-          minEntityWidth: 100,
-          minEntityHeight: 75,
-          entityPadding: 15,
-          stroke: 'gray',
-          fill: 'honeydew',
-          fontSize: 12,
-          useMaxWidth: true
-        }
+      document.addEventListener('DOMContentLoaded', function() {
+        mermaid.initialize({
+          startOnLoad: true,
+          theme: 'default',
+          themeVariables: {
+            primaryColor: '#157878',
+            primaryTextColor: '#333',
+            primaryBorderColor: '#0d5aa7',
+            lineColor: '#0d5aa7',
+            secondaryColor: '#f1f8ff',
+            tertiaryColor: '#fff'
+          },
+          flowchart: {
+            useMaxWidth: true,
+            htmlLabels: true,
+            curve: 'basis'
+          },
+          sequence: {
+            useMaxWidth: true
+          },
+          er: {
+            useMaxWidth: true
+          }
+        });
+        
+        // Convert code blocks with language 'mermaid' to mermaid divs
+        document.querySelectorAll('pre code.language-mermaid').forEach(function(element) {
+          const mermaidDiv = document.createElement('div');
+          mermaidDiv.className = 'mermaid';
+          mermaidDiv.textContent = element.textContent;
+          element.parentNode.parentNode.replaceChild(mermaidDiv, element.parentNode);
+        });
+        
+        // Re-initialize mermaid after conversion
+        mermaid.init();
       });
     </script>
     

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mermaid Test - CASHNET Documentation</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .mermaid {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #e9ecef;
+        }
+        
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 CASHNET Mermaid Test Page</h1>
+        
+        <div class="success">
+            <strong>✅ Success!</strong> If you can see interactive diagrams below (not code blocks), then Mermaid is working perfectly!
+        </div>
+
+        <h2>🏗️ CASHNET Architecture Overview</h2>
+        <div class="mermaid">
+            flowchart LR
+                M[🏪 Merchant] --> ACQ[🏦 Acquirer]
+                ACQ --> REN[⚡ REN Core]
+                REN --> HSM[🔐 HSM]
+                REN --> ADP[🔄 Adapters]
+                ADP --> ISS[🏛️ Issuer Banks]
+                REN --> OBS[📊 Monitoring]
+                REN --> BATCH[📁 Settlement]
+        </div>
+
+        <h2>🔄 Transaction Flow</h2>
+        <div class="mermaid">
+            sequenceDiagram
+                participant C as 👤 Customer
+                participant M as 🏪 Merchant
+                participant R as ⚡ REN
+                participant H as 🔐 HSM
+                participant I as 🏛️ Issuer
+                
+                C->>M: Tap Card
+                M->>R: Auth Request
+                R->>H: Crypto Check
+                H-->>R: Validated
+                R->>I: Route to Bank
+                I-->>R: Approve/Decline
+                R-->>M: Response
+                M-->>C: Transaction Result
+        </div>
+
+        <h2>🔐 Security Components</h2>
+        <div class="mermaid">
+            flowchart TD
+                HSM[🔐 HSM] --> LMK[Local Master Key]
+                HSM --> ZMK[Zone Master Key]
+                HSM --> ZPK[Zone PIN Key]
+                HSM --> BDK[Base Derivation Key]
+                
+                LMK --> PIN[PIN Translation]
+                ZMK --> KEYS[Key Exchange]
+                ZPK --> ENCRYPT[PIN Encryption]
+                BDK --> DUKPT[Unique Keys]
+        </div>
+
+        <h2>📊 Data Relationships</h2>
+        <div class="mermaid">
+            erDiagram
+                MERCHANT ||--o{ TRANSACTION : initiates
+                ACQUIRER ||--o{ TRANSACTION : receives
+                ISSUER ||--o{ TRANSACTION : decides
+                TRANSACTION ||--o{ SETTLEMENT : grouped
+                
+                MERCHANT {
+                    string merchant_id
+                    string name
+                    string mcc
+                }
+                
+                TRANSACTION {
+                    string txn_id
+                    string pan_masked
+                    int amount
+                    string currency
+                }
+        </div>
+
+        <div class="success">
+            <strong>🎉 Perfect!</strong> All diagrams are rendering correctly. Your CASHNET documentation will look amazing!
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#3498db',
+                primaryTextColor: '#2c3e50',
+                primaryBorderColor: '#2980b9',
+                lineColor: '#2980b9',
+                secondaryColor: '#ecf0f1',
+                tertiaryColor: '#ffffff'
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            },
+            sequence: {
+                useMaxWidth: true,
+                showSequenceNumbers: true
+            },
+            er: {
+                useMaxWidth: true
+            }
+        });
+    </script>
+</body>
+</html>

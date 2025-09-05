@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CASHNET: Complete System Documentation</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #157878 0%, #0d5aa7 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin: 20px 0;
+        }
+        
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #157878 0%, #0d5aa7 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+        
+        .mermaid {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #e9ecef;
+            text-align: center;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .feature-card h4 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .stats {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .toc li {
+            margin: 8px 0;
+        }
+        
+        .toc a {
+            color: #3498db;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+        
+        .toc a:hover {
+            background: #3498db;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏦 CASHNET</h1>
+        <div class="subtitle">Complete Payment Processing System Documentation</div>
+    </div>
+
+    <div class="container">
+        <div class="stats">
+            <h2 style="margin-top: 0; color: white; border: none;">⚡ System Performance</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">&lt;1s</span>
+                    <span>p95 Response Time</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">99.99%</span>
+                    <span>Availability</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Millions</span>
+                    <span>Daily Transactions</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span>Operation</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="toc">
+            <h3>📋 Quick Navigation</h3>
+            <ul>
+                <li><a href="#architecture">🏗️ System Architecture</a></li>
+                <li><a href="#transaction-flow">🔄 Transaction Flow</a></li>
+                <li><a href="#security">🔐 Security Framework</a></li>
+                <li><a href="#components">⚙️ Components</a></li>
+                <li><a href="#monitoring">📊 Monitoring</a></li>
+            </ul>
+        </div>
+
+        <section id="architecture">
+            <h2>🏗️ High-Level System Architecture</h2>
+            <p>CASHNET is a sophisticated payment processing platform that acts as the central hub for financial transactions. It connects merchants, acquirer banks, and issuer banks in a secure, reliable ecosystem.</p>
+            
+            <div class="mermaid">
+                flowchart LR
+                    M["🏪 Merchant / ATM / E-com"]
+                    
+                    subgraph ACQ["🏦 Acquirers"]
+                        A1["HSBC ACQ/ISS"]
+                        A2["CITI ACQ/ISS"]
+                    end
+                    
+                    subgraph REN["⚡ Renaissance Online (REN)"]
+                        R["REN Core"]
+                        subgraph ADP["🔄 Issuer Adapters"]
+                            ADP1["Barclays Adapter"]
+                            ADP2["Deutsche Adapter"]
+                            ADP3["HSBC Adapter"]
+                            ADP4["CITI Adapter"]
+                        end
+                    end
+                    
+                    subgraph HSMBox["🔐 Security"]
+                        HSM["HSM — Crypto / PIN / EMV"]
+                    end
+                    
+                    subgraph OBS["📊 Observability"]
+                        GLOG["Graylog Logs"]
+                        GRAF["Grafana Metrics"]
+                        UI["REN UI Console"]
+                    end
+                    
+                    subgraph BATCH["📁 Downstream"]
+                        WS["WS Feed"]
+                        SFTP["SFTP Folder"]
+                        DMS["DMS Reports"]
+                        OFF["Offline Clearing"]
+                    end
+                    
+                    subgraph ISS["🏛️ Issuer Banks"]
+                        I1["Barclays"]
+                        I2["Deutsche"]
+                        I3["HSBC"]
+                        I4["CITI"]
+                    end
+                    
+                    M --> ACQ
+                    ACQ --> R
+                    R --> HSM
+                    R --> ADP
+                    ADP --> ISS
+                    R --> OBS
+                    R --> BATCH
+            </div>
+        </section>
+
+        <section id="transaction-flow">
+            <h2>🔄 Real-Time Transaction Flow</h2>
+            <p>Every transaction follows a precise path through CASHNET, from the moment a customer taps their card to the final authorization response.</p>
+            
+            <div class="mermaid">
+                sequenceDiagram
+                    participant C as 👤 Cardholder
+                    participant M as 🏪 Merchant
+                    participant ACQ as 🏦 Acquirer
+                    participant REN as ⚡ REN Core
+                    participant HSM as 🔐 HSM
+                    participant ADP as 🔄 Adapter
+                    participant ISS as 🏛️ Issuer Bank
+                    
+                    C->>M: 1. Tap/Swipe Card
+                    M->>ACQ: 2. Transaction Request
+                    ACQ->>REN: 3. Auth Request
+                    REN->>HSM: 4. Crypto Validation
+                    HSM-->>REN: 4a. Validated
+                    REN->>ADP: 5. Route to Issuer
+                    ADP->>ISS: 6. Bank-specific Message
+                    ISS-->>ADP: 7. Approve/Decline
+                    ADP-->>REN: 8. Response
+                    REN-->>ACQ: 9. Decision
+                    ACQ-->>M: 10. Result
+                    M-->>C: 11. Transaction Complete
+            </div>
+        </section>
+
+        <section id="security">
+            <h2>🔐 Security Framework</h2>
+            <p>Security is the foundation of CASHNET, with multiple layers of protection including Hardware Security Modules, encryption, and compliance standards.</p>
+            
+            <div class="mermaid">
+                flowchart TD
+                    HSM[🔐 HSM Security Module]
+                    
+                    HSM --> LMK[Local Master Key]
+                    HSM --> ZMK[Zone Master Key]
+                    HSM --> ZPK[Zone PIN Key]
+                    HSM --> BDK[Base Derivation Key]
+                    
+                    LMK --> PIN[PIN Translation]
+                    ZMK --> KEYS[Key Exchange]
+                    ZPK --> ENCRYPT[PIN Encryption]
+                    BDK --> DUKPT[Unique Transaction Keys]
+                    
+                    subgraph CONTROLS[Security Controls]
+                        DC[Dual Control]
+                        AUD[Audit Ceremonies]
+                        ROT[Key Rotation]
+                    end
+                    
+                    CONTROLS --> HSM
+            </div>
+        </section>
+
+        <section id="components">
+            <h2>⚙️ Key Components</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>⚡ REN Core</h4>
+                    <p>Central transaction processing engine that routes payments to the correct banks with sub-second response times.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>🔐 HSM</h4>
+                    <p>Hardware Security Module providing cryptographic operations, PIN translation, and EMV processing.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>🔄 Issuer Adapters</h4>
+                    <p>Protocol translators that convert REN messages to bank-specific formats for seamless communication.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>📊 Monitoring</h4>
+                    <p>Complete observability with Graylog logging, Grafana metrics, and real-time dashboards.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="monitoring">
+            <h2>📊 System Monitoring</h2>
+            <p>CASHNET provides comprehensive monitoring and observability across all components.</p>
+            
+            <div class="mermaid">
+                flowchart LR
+                    REN[⚡ REN Core]
+                    
+                    subgraph LOGS[📝 Logging]
+                        GLOG[Graylog]
+                    end
+                    
+                    subgraph METRICS[📊 Metrics]
+                        GRAF[Grafana]
+                        PROM[Prometheus]
+                    end
+                    
+                    subgraph OPS[👥 Operations]
+                        UI[REN UI Console]
+                        ALERTS[Alert Manager]
+                    end
+                    
+                    REN --> LOGS
+                    REN --> METRICS
+                    METRICS --> ALERTS
+                    ALERTS --> OPS
+                    UI --> REN
+            </div>
+        </section>
+
+        <div class="stats">
+            <h3 style="color: white; margin-top: 0;">🎉 Ready to Deploy!</h3>
+            <p>Your CASHNET documentation is now ready with beautiful, interactive Mermaid diagrams that will render perfectly on any modern web browser.</p>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#3498db',
+                primaryTextColor: '#2c3e50',
+                primaryBorderColor: '#2980b9',
+                lineColor: '#2980b9',
+                secondaryColor: '#ecf0f1',
+                tertiaryColor: '#ffffff',
+                background: '#ffffff',
+                mainBkg: '#ffffff',
+                secondBkg: '#f8f9fa'
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            },
+            sequence: {
+                useMaxWidth: true,
+                showSequenceNumbers: true,
+                diagramMarginX: 50,
+                diagramMarginY: 10,
+                actorMargin: 50,
+                width: 150,
+                height: 65,
+                boxMargin: 10,
+                boxTextMargin: 5,
+                noteMargin: 10,
+                messageMargin: 35
+            },
+            er: {
+                useMaxWidth: true,
+                diagramPadding: 20,
+                layoutDirection: 'TB'
+            }
+        });
+    </script>
+</body>
+</html>
